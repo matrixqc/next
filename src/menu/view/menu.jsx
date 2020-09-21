@@ -890,8 +890,7 @@ class Menu extends Component {
             [`${prefix}hoz`]: direction === 'hoz',
             [`${prefix}menu-embeddable`]: embeddable,
             [`${prefix}menu-nowrap`]: hozInLine,
-            [`${prefix}menu-selectable-multiple`]: this.props.selectMode === 'multiple',
-            [`${prefix}menu-selectable-single`]: this.props.selectMode === 'single',
+            [`${prefix}menu-selectable-${this.props.selectMode}`]: this.props.selectMode,
             [className]: !!className,
         });
 
