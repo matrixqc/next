@@ -768,11 +768,18 @@ class Table extends React.Component {
                 tableLayout,
                 tableWidth,
                 ref,
+                rowSelection,
                 ...others
             } = this.props,
+            selectMode = (() => {
+                if (!rowSelection) return null;
+                if (rowSelection.mode === 'single') return 'single';
+                return 'multiple';
+            })(),
             cls = classnames({
                 [`${prefix}table`]: true,
                 [`${prefix}table-${size}`]: size,
+                [`${prefix}table-selectable-${selectMode}`]: !!selectMode,
                 [`${prefix}table-layout-${tableLayout}`]: tableLayout,
                 'only-bottom-border': !hasBorder,
                 'no-header': !hasHeader,
